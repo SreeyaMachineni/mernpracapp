@@ -14,6 +14,9 @@ const Dashboard = () => {
     const {goals, isLoading,isError, message} = useSelector((state)=>state.goals)
 
     useEffect(()=>{
+      
+      console.log(isError,'---------error----')
+
         if(!user){
             console.log(user)
             navigate('/login')
@@ -24,7 +27,7 @@ const Dashboard = () => {
         return ()=>{
             dispatch(reset())
         }
-    },[user,navigate, isError,message,dispatch])
+    },[user])
 
     if(isLoading){
         return (<Spinner/>)
